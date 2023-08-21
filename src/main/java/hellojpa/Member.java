@@ -6,13 +6,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name = "USER") // table이름 다를 경우 지정
 public class Member {
 
     @Id
     private Long id;
-//    @Column(name = "userName")
     private String name;
+
+    public Member() {}
+
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

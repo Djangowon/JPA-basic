@@ -16,11 +16,13 @@ public class JpaMain {
         tx.begin();
 
         try {
+            // 영속
+            Member member1 = new Member(150L, "A");
+            Member member2 = new Member(151L, "B");
 
-            Member findMember1 = em.find(Member.class, 101L);
-            Member findMember2 = em.find(Member.class, 101L);
-
-            System.out.println("result = " + (findMember1 == findMember2));
+            em.persist(member1);
+            em.persist(member2);
+            System.out.println("===========");
 
             tx.commit();
         } catch (Exception e) {
